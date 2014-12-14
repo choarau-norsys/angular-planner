@@ -1,0 +1,16 @@
+<tbody>
+    <tr>
+        <td class="col-md-2"></td>
+        <td class="col-md-1">Projet</td>
+        <td class="text-center" ng-repeat='date in dates'>{{date | date : 'dd'}}</td>
+    </tr>
+    <tr ng-repeat="resource in resources">
+        <td class="col-md-2">{{resource| fullName }}</td>
+        <td class="col-md-1">{{resource.group}}</td>
+        <td ng-repeat="date in dates">
+            <select ng-model="resource.activities[$index]" ng-change="updateResource(resource)" ng-options="label.label for label in activities track by label.label">
+                <option value="">-</option>
+            </select>
+        </td>
+    </tr>
+</tbody>

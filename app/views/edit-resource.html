@@ -1,0 +1,41 @@
+<h3>Resource</h3>
+
+<form class="form-horizontal" role="form" name="resourceForm" novalidate>
+    <div class="form-group"
+         ng-class="{'has-error': resourceForm.lastName.$dirty && resourceForm.lastName.$invalid,
+                 'has-success': resourceForm.lastName.$dirty && resourceForm.lastName.$valid}">
+        <label for="lastName" class="col-sm-1 control-label">Nom</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom"
+                   ng-model="resource.lastName"
+                   required>
+        </div>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error': resourceForm.firstName.$dirty && resourceForm.firstName.$invalid,
+             'has-success': resourceForm.firstName.$dirty && resourceForm.firstName.$valid}">
+        <label for="firstName" class="col-sm-1 control-label">Prénom</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Prénom"
+                   ng-model="resource.firstName"
+                   required>
+        </div>
+    </div>
+    <div class="form-group"
+         ng-class="{'has-error': resourceForm.group.$dirty && resourceForm.group.$invalid,
+         'has-success': resourceForm.group.$dirty && resourceForm.group.$valid}">
+        <label for="group" class="col-sm-1 control-label">Groupe</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="group" name="group" placeholder="Groupe"
+                   ng-model="resource.group"
+                   required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-1 col-md-4">
+            <button type="submit" class="btn btn-primary"
+                    ng-disabled="resourceForm.$invalid"
+                    ng-click="saveResource(resource)">Enregistrer</button>
+        </div>
+    </div>
+</form>
