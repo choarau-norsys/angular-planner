@@ -15,14 +15,14 @@ angular.module('plannerApp')
                 replace: true,
                 scope: {},
                 controller: function ($scope, $filter, resourceService) {
-                    
+
                     var dates = $filter('daysInMonth')(11, 2014);
 
                     var activities = [
-                        {label: "TMA"},
-                        {label: "AT"},
-                        {label: "Formation"},
-                        {label: "Congés"}
+                        {label: "TMA", count: 0},
+                        {label: "AT", count: 0},
+                        {label: "Formation", count: 0},
+                        {label: "Congés", count: 0}
                     ];
 
                     $scope.planningDate = "Décembre 2014";
@@ -38,13 +38,32 @@ angular.module('plannerApp')
                     this.getActivities = function () {
                         return activities;
                     };
-                    
+
                     this.updateResource = function (resource) {
-                        resourceService.saveResource(resource);
+
+                        // sauvegarde de la resource
+                        resourceService.saveResource(resource).then(function () {
+                            $scope.updateTotals();
+                        });
                     };
+
+                    $scope.updateTotals = function updateTotals() {
+                        resourceService.getResources().then(function (resources) {
+                            $scope.totals = angular.copy(activities);
+                            angular.forEach(resources, function (resource) {
+                                angular.forEach(resource.activities, function (resAct) {
+                                    angular.forEach($scope.totals, function (act) {
+                                        if (act.label === resAct.label) {
+                                            act.count = act.count + 1;
+                                        }
+                                    });
+                                });
+                            });
+                        });
+                    }
                 },
                 link: function postLink(scope, element, attrs) {
-
+                    scope.updateTotals();
                 }
             };
         });

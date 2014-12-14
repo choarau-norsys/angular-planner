@@ -73,7 +73,7 @@ angular.module('plannerApp')
 
                 if (resource.id === "") {
                     t.objectStore("resources")
-                            .add({lastName: resource.lastName, firstName: resource.firstName, group: resource.group, activites: {}});
+                            .add({lastName: resource.lastName, firstName: resource.firstName, group: resource.group, activities: []});
                 } else {
                     t.objectStore("resources")
                             .put({id: Number(resource.id), lastName: resource.lastName, firstName: resource.firstName, group: resource.group, activities: resource.activities});

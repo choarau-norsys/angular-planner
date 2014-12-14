@@ -19,10 +19,10 @@ angular.module('plannerApp')
                     });
 
                     scope.dates = plannerController.getDates();
-                    
+
                     scope.activities = plannerController.getActivities();
-                    
-                    scope.updateResource = function(resource) {
+
+                    scope.updateResource = function (resource) {
                         plannerController.updateResource(resource);
                     };
                 }
