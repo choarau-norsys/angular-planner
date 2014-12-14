@@ -12,10 +12,10 @@ angular.module('plannerApp')
                 templateUrl: 'views/directives-tpl/planner.html',
                 transclude: true,
                 restrict: 'E',
+                replace: true,
                 scope: {},
                 controller: function ($scope, $filter, resourceService) {
                     
-                    console.log($filter('daysInMonth')(11, 2014));
                     var dates = $filter('daysInMonth')(11, 2014);
 
                     var activities = [
