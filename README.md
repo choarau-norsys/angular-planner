@@ -15,7 +15,7 @@ npm install --global grunt-cli
 ```
 
 ## Clone angular-planner
-Clone the angular-planner repository using [git][git]:
+Clone the angular-planner repository using [git](http://git-scm.com/):
 
 ```
 git clone https://github.com/choarau-norsys/angular-planner.git
