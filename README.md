@@ -23,4 +23,8 @@ cd angular-planner
 ```
 
 ## Usage
+Run `npm install` to install node_modules
+
+Run `bower install` to install bower_components
+
 Run `grunt` for building and `grunt serve` for preview
